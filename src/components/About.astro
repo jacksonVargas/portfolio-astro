@@ -1,0 +1,53 @@
+---
+import Container from './Container.astro'
+import Title from './Title.astro'
+import CardAbout from './CardAbout.astro'
+import Code from '../icons/code-xml.svg'
+import Palette from '../icons/palette.svg'
+import Zap from '../icons/zap.svg'
+---
+
+<Container>
+  <section id="about" class="py-15">
+    <Title 
+      title="SOBRE MIM"
+      body="Conheça um pouco da minha trajetória"
+    />
+    
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <h3 class="text-2xl md:text-3xl text-zinc-300 font-semibold mb-3">Criando o futuro, <span class="text-teal-500">uma linha de código</span> por vez</h3>
+        <p class="text-zinc-500 md:text-sm">
+          Sou um desenvolvedor web front-end apaixonado por criar experiências digitais memoráveis. Com mais de 5 anos de experiência, 
+          já ajudei diversas empresas a transformar suas ideias em produtos digitais de sucesso. <br /> <br />
+          
+          Meu foco está em Next e seu ecossistema, sempre buscando as melhores soluções para cada projeto. Acredito que um bom código é 
+          aquele que não só funciona, mas também é fácil de entender e manter.
+        </p>
+      </div>
+      
+      <div class="grid gap-2">
+        <CardAbout
+          title="Código Limpo"
+          body="Escrevo código organizado, escalável e seguindo as melhores práticas do mercado."
+        >
+          <Code width={23} height={23} slot="icon" />
+        </CardAbout>
+        
+        <CardAbout
+          title="Design Moderno"
+          body="Interfaces elegantes e intuitivas que proporcionam a melhor experiência ao usuário."
+        >
+          <Palette width={22} height={22} slot="icon" />
+        </CardAbout>
+        
+        <CardAbout
+          title="Performance"
+          body="Aplicações rápidas e otimizadas, garantindo carregamento instantâneo."
+        >
+          <Zap width={23} height={23} slot="icon" />
+        </CardAbout>
+      </div>
+    </div>
+  </section>
+</Container>

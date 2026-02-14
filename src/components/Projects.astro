@@ -1,0 +1,27 @@
+---
+import Container from './Container.astro'
+import Title from './Title.astro'
+import { projects } from '../projects'
+import ProjectCard from './ProjectCard.astro'
+---
+
+<Container>
+  <section id="projects" class="py-15">
+    <Title 
+      title="Projetos Recentes"
+      body="Alguns dos projetos que desenvolvi recentemente, demonstrando minhas habilidades e paixão por criar experiências digitais."
+    />
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {projects.map(project => (
+        <ProjectCard 
+          cover={project.cover}
+          title={project.title}
+          description={project.description}
+          link={project.link}
+          git={project.git}
+        />
+      ))}
+    </div>
+  </section>
+</Container>

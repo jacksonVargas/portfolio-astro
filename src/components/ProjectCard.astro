@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets'
+
+interface Props {
+  cover: import('astro').ImageMetadata
+  title: string
+  description: string
+  link: string
+  git: string
+}
+
+const { cover, title, description, link, git } = Astro.props
+---
+
+<div class="border border-zinc-800 rounded">
+  <Image 
+    src={cover}
+    alt={title}
+    class="w-full h-48 object-cover"
+  />
+  
+  <div class="p-5">
+    <h3 class="text-zinc-300 text-xl">{title}</h3>
+    <p class="md:text-sm text-zinc-500 mb-5">{description}</p>
+    
+    <div class="w-full grid grid-cols-2 gap-2">
+      <a class="text-center py-1 px-5 text-sm border border-zinc-800 text-zinc-500 hover:border-teal-500 hover:text-teal-500 rounded" href={link} target="_blank">Ver Projeto</a>
+      <a class="text-center py-1 px-5 text-sm border border-zinc-800 text-zinc-500 hover:border-teal-500 hover:text-teal-500 rounded" href={git} target="_blank">Código</a>
+    </div>
+  </div>
+</div>

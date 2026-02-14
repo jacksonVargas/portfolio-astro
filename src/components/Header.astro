@@ -1,0 +1,94 @@
+---
+import Menu from '../icons/menu.svg'
+import Close from '../icons/x.svg'
+import Git from '../icons/github.svg'
+import Linkedin from '../icons/linkedin.svg'
+---
+
+<header class="w-full bg-black/70 backdrop-blur-sm fixed z-1 top-0 border-b border-b-zinc-800">
+  <nav class="max-w-5xl mx-auto py-3 px-5 flex justify-between items-center">
+    <a href="#" class="text-xl md:text-2xl text-zinc-300">JACKSON <span class="text-teal-500">VARGAS</span></a>
+    
+    <!-- Menu desktop -->
+    <ul class="hidden md:flex items-center gap-6">
+      <a href="#hero" class="text-zinc-300 md:text-sm rounded  hover:text-teal-500">Início</a>
+      <a href="#about" class="text-zinc-300 md:text-sm rounded hover:text-teal-500">Sobre</a>
+      <a href="#skills" class="text-zinc-300 md:text-sm rounded hover:text-teal-500">Skills</a>
+      <a href="#projects" class="text-zinc-300 md:text-sm rounded hover:text-teal-500">Projetos</a>
+      <a href="#contact" class="text-zinc-300 md:text-sm rounded hover:text-teal-500">Contato</a>
+    </ul>
+    
+    <!-- Button menu -->
+    <button id="btn" class="md:hidden text-zinc-300 hover:text-teal-500 cursor-pointer">
+      <Menu id="icon-menu" width={25} height={25} />
+      <Close id="icon-close" class="hidden" width={25} height={25} />
+    </button>
+  </nav>
+</header>
+
+<!-- Menu mobile -->
+<div id="sidebar" class="hidden w-full h-screen max-w-70 fixed z-1 left-0 top-0 bg-black border-r border-r-zinc-800">
+  <ul class="grid gap-3 py-3 px-5">
+    <a href="#hero" class="text-zinc-300 py-2 px-3 rounded  hover:text-teal-500 border border-zinc-800">Início</a>
+    <a href="#about" class="text-zinc-300 py-2 px-3 rounded hover:text-teal-500 border border-zinc-800">Sobre</a>
+    <a href="#skills" class="text-zinc-300 py-2 px-3 rounded hover:text-teal-500 border border-zinc-800">Skills</a>
+    <a href="#projects" class="text-zinc-300 py-2 px-3 rounded hover:text-teal-500 border border-zinc-800">Projetos</a>
+    <a href="#contact" class="text-zinc-300 py-2 px-3 rounded hover:text-teal-500 border border-zinc-800">Contato</a>
+  </ul>
+  
+  <div class="flex items-center absolute bottom-20 px-5 gap-2">
+    <a class="flex justify-center items-center text-zinc-300 hover:text-teal-500 hover:border-teal-500 w-10 h-10 rounded border border-zinc-800" href="#" target="_blank">
+      <Git width={20} height={20} />
+    </a>
+    
+    <a class="flex justify-center items-center text-zinc-300 hover:text-teal-500 hover:border-teal-500 w-10 h-10 rounded border border-zinc-800" href="#" target="_blank">
+      <Linkedin width={20} height={20} />
+    </a>
+  </div>
+</div>
+
+<script>
+    const btn = document.getElementById('btn')
+    const iconMenu = document.getElementById('icon-menu')
+    const iconClose = document.getElementById('icon-close')
+    const sidebar = document.getElementById('sidebar')
+    const links = sidebar?.querySelectorAll('a')
+  
+    function openMenu() {
+      sidebar?.classList.remove('hidden')
+      iconMenu?.classList.add('hidden')
+      iconClose?.classList.remove('hidden')
+    }
+  
+    function closeMenu() {
+      sidebar?.classList.add('hidden')
+      iconMenu?.classList.remove('hidden')
+      iconClose?.classList.add('hidden')
+    }
+  
+    function toggleMenu() {
+      if (sidebar?.classList.contains('hidden')) {
+        openMenu()
+      } else {
+        closeMenu()
+      }
+    }
+  
+    btn?.addEventListener('click', toggleMenu)
+  
+    // Fecha ao clicar nos links
+    links?.forEach(link => {
+      link.addEventListener('click', closeMenu)
+    })
+  
+    // Fecha ao clicar fora da sidebar
+    document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Node)) return
+      const isClickInside = sidebar?.contains(event.target)
+      const isClickButton = btn?.contains(event.target)
+  
+      if (!isClickInside && !isClickButton && !sidebar?.classList.contains('hidden')) {
+        closeMenu()
+      }
+    })
+</script>

@@ -1,0 +1,19 @@
+---
+export interface Props {
+  title: string
+  body: string
+}
+
+const { title, body } = Astro.props
+---
+
+<div class="w-full flex gap-4 border border-zinc-800 rounded p-5 hover:border-teal-500">
+  <div class="pointer-events-none w-15 h-10 rounded-lg flex justify-center items-center  bg-teal-600 text-zinc-300">
+    <slot name="icon" />
+  </div>
+
+  <div class="space-y-1 pointer-events-none">
+    <h3 class="text-zinc-300 text-lg">{title}</h3>
+    <p class="text-zinc-500 text-sm">{body}</p>
+  </div>
+</div>

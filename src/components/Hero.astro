@@ -1,0 +1,36 @@
+---
+import Container from '../components/Container.astro'
+import Git from '../icons/github.svg'
+import Linkedin from '../icons/linkedin.svg'
+---
+
+<Container>
+  <section id="hero" class="w-full h-screen grid place-items-center">
+    <div class="relative space-y-3 text-center">
+      <h1 class="text-zinc-300 text-4xl md:text-5xl font-semibold">
+        Olá, meu nome é <span class="text-teal-500">Jackson Vargas</span>
+      </h1>
+      
+      <p class="text-zinc-500 text-lg">Desenvolvedor web Front-End</p>
+      
+      <p class="text-zinc-500 text-sm md:text-md mb-7">
+        Transformo ideias em experiências digitais incríveis. Especializado em Next, TypeScript e interfaces modernas que encantam usuários.
+      </p>
+      
+      <div class="w-full flex justify-center items-center gap-2">
+        <a href="#projects" class="transition-all duration-300 hover:scale-103 py-2 px-5 text-sm  text-zinc-300 bg-teal-600 rounded">Ver Projetos</a>
+        <a href="#contact" class="transition-all duration-300 hover:scale-103 py-2 px-5 text-sm  text-black bg-white rounded">Meu Contato</a>
+      </div>
+      
+      <div class="w-full flex justify-center items-center absolute -bottom-18 px-5 gap-2">
+        <a class="flex justify-center items-center text-zinc-300 hover:text-teal-500 hover:border-teal-500 w-10 h-10 rounded border border-zinc-800" href="#" target="_blank">
+          <Git width={20} height={20} />
+        </a>
+        
+        <a class="flex justify-center items-center text-zinc-300 hover:text-teal-500 hover:border-teal-500 w-10 h-10 rounded border border-zinc-800" href="#" target="_blank">
+          <Linkedin width={20} height={20} />
+        </a>
+      </div>
+    </div>
+  </section>
+</Container>

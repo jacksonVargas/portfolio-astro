@@ -16,11 +16,11 @@ const { cover, title, description, link, git } = Astro.props
   <Image 
     src={cover}
     alt={title}
-    class="w-full h-48 object-cover"
+    class="w-full h-48 object-cover rounded-t"
   />
   
   <div class="p-5">
-    <h3 class="text-zinc-300 text-xl">{title}</h3>
+    <h3 class="text-zinc-300 text-xl mb-2">{title}</h3>
     <p class="md:text-sm text-zinc-500 mb-5">{description}</p>
     
     <div class="w-full grid grid-cols-2 gap-2">
